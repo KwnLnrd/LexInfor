@@ -1,0 +1,8 @@
+# Fichier de configuration pour Netlify
+
+# Règle de redirection pour les Single Page Applications (SPA)
+# Ceci redirige toutes les requêtes vers index.html pour que react-router-dom puisse gérer la route.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
