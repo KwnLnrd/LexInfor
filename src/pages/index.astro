@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+<Layout title="LexInfor - Dépannage Informatique à Domicile" description="Dépannage informatique rapide, assistance et formation personnalisée dans votre région.">
+  <!-- Alpine.js pour gérer le modal -->
+  <script src="https://unpkg.com/alpinejs" defer></script>
+
+  <!-- Hero Section -->
+  <section class="bg-primary text-white py-20 text-center" x-data="{ showModal: false }">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4">Un problème avec votre ordinateur ?</h1>
+    <p class="text-lg mb-6">LexInfor intervient rapidement chez vous et vous accompagne pas à pas.</p>
+    <div class="flex justify-center gap-4">
+      <button @click="showModal = true" class="bg-accent px-6 py-3 rounded-lg font-semibold">Être rappelé</button>
+      <a href="tel:0695036915" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold">0695036915</a>
+    </div>
+
+    <!-- Modal -->
+    <div x-show="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" x-transition>
+      <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+        <button @click="showModal = false" class="absolute top-2 right-2 text-slate-500 hover:text-slate-700">✕</button>
+        <h2 class="text-xl font-bold mb-4">Être rappelé</h2>
+        <form action="#" method="POST" class="grid gap-4">
+          <div>
+            <label for="name" class="block mb-1 font-semibold">Nom</label>
+            <input type="text" id="name" name="name" required class="w-full border border-slate-300 rounded-lg p-2" />
+          </div>
+          <div>
+            <label for="phone" class="block mb-1 font-semibold">Téléphone</label>
+            <input type="tel" id="phone" name="phone" required class="w-full border border-slate-300 rounded-lg p-2" />
+          </div>
+          <button type="submit" class="bg-accent text-white py-2 px-4 rounded-lg font-semibold hover:bg-emerald-600">Demander un rappel</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-2xl font-bold text-center mb-8">Mes Services</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <ServiceCard icon="🛠️" title="Dépannage" description="Pannes, lenteurs, virus..." link="/services" />
+      <ServiceCard icon="🎓" title="Formation" description="Cours personnalisés pour tous niveaux." link="/services" />
+      <ServiceCard icon="💻" title="Installation" description="PC, imprimantes, logiciels..." link="/services" />
+      <ServiceCard icon="🔒" title="Sécurité" description="Suppression de virus, sauvegardes." link="/services" />
+      <ServiceCard icon="📂" title="Récupération de données" description="Récupération après incident." link="/services" />
+      <ServiceCard icon="💡" title="Conseil" description="Aide à l'achat de matériel." link="/services" />
+    </div>
+  </section>
+
+  <!-- Pourquoi me faire confiance -->
+  <section class="bg-slate-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-6">Pourquoi me faire confiance ?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-lg shadow-md">
+          <h3 class="font-semibold mb-2">Intervention rapide</h3>
+          <p>Déplacement dans les plus brefs délais.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md">
+          <h3 class="font-semibold mb-2">Expertise certifiée</h3>
+          <p>Des années d'expérience dans le dépannage.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md">
+          <h3 class="font-semibold mb-2">Tarifs transparents</h3>
+          <p>Pas de mauvaise surprise, devis gratuit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-2xl font-bold text-center mb-8">Témoignages</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <p>"Service impeccable, problème résolu en 1h !"</p>
+        <span class="text-sm text-slate-500">— Marie L.</span>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <p>"Très patient et pédagogue, je recommande."</p>
+        <span class="text-sm text-slate-500">— Jean P.</span>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <p>"Enfin un dépanneur qui explique tout clairement."</p>
+        <span class="text-sm text-slate-500">— Sophie R.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="bg-primary text-white py-12 text-center">
+    <h2 class="text-2xl font-bold mb-4">Besoin d'aide dès maintenant ?</h2>
+    <p class="mb-6">Contactez-moi et je vous rappelle rapidement.</p>
+    <button @click="showModal = true" class="bg-accent px-6 py-3 rounded-lg font-semibold">Être rappelé</button>
+  </section>
+</Layout>
