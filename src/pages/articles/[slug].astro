@@ -1,0 +1,29 @@
+---
+// src/pages/articles/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+
+// Cette fonction est nécessaire pour qu'Astro sache quelles pages générer
+export async function getStaticPaths() {
+  // Dans un vrai projet, vous récupéreriez ces données d'un CMS ou de fichiers locaux
+  const articles = [
+    { slug: 'proteger-son-pc-des-virus', title: 'Comment protéger son PC des virus ?', content: 'Contenu complet de l\'article sur la protection contre les virus...' },
+    { slug: 'accelerer-un-ordinateur-lent', title: '5 astuces pour accélérer un ordinateur lent', content: 'Contenu complet de l\'article sur l\'accélération de PC...' },
+  ];
+
+  return articles.map(article => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+---
+<Layout title={article.title} description={`Article détaillé sur ${article.title}`}>
+  <article class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-4">{article.title}</h1>
+    <div class="prose lg:prose-xl">
+      <p>{article.content}</p>
+      <!-- Vous pouvez ajouter plus de contenu Markdown ou HTML ici -->
+    </div>
+  </article>
+</Layout>

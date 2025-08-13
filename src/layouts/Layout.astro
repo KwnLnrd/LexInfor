@@ -1,0 +1,35 @@
+---
+// src/layouts/Layout.astro
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<!-- Alpine.js pour les interactions comme le modal -->
+  	<script src="https://unpkg.com/alpinejs" defer></script>
+	</head>
+	<body class="bg-slate-50 text-slate-800">
+		<Navbar />
+		<main>
+			<!-- Le contenu de chaque page sera injecté ici -->
+			<slot />
+		</main>
+		<Footer />
+    <style is:global>
+			/* Vous pouvez ajouter des styles globaux ici si nécessaire */
+    </style>
+	</body>
+</html>
